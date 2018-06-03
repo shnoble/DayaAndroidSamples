@@ -23,4 +23,10 @@
         android:layout_height="wrap_content"
         android:text="Expandable Notification"/>
 
+    <Button
+        android:id="@+id/update_notification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Update Notification"/>
+
 </LinearLayout>

@@ -36,6 +36,13 @@ public class MainActivity extends AppCompatActivity {
                 showExpandableNotification();
             }
         });
+
+        findViewById(R.id.update_notification).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateNotification();
+            }
+        });
     }
 
     private void showSimpleNotification() {
@@ -117,5 +124,30 @@ public class MainActivity extends AppCompatActivity {
         if (notificationManager != null) {
             notificationManager.notify(mId, mBuilder.build());
         }
+    }
+
+    private int mNumMessages = 0;
+
+    private void updateNotification() {
+        NotificationManager notificationManager =
+                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        // Sets an ID for the notification, so it can be updated
+
+        int notifyID = 1;
+        NotificationCompat.Builder notifyBuilder = new NotificationCompat.Builder(this)
+                .setContentTitle("New Message")
+                .setContentText("You've received new messages.")
+                .setSmallIcon(R.drawable.ic_launcher_foreground);
+
+        // Start of a loop that processes data and then notifies the user
+
+        String currentText = String.format("Message(%d)", mNumMessages);
+        notifyBuilder.setContentText(currentText)
+                .setNumber(++mNumMessages);
+        // Because the ID remains unchanged, the existing notification is
+        // updated.
+        notificationManager.notify(
+                notifyID,
+                notifyBuilder.build());
     }
 }
