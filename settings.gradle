@@ -1,0 +1,7 @@
+/*
+ * Create by shnoble on 2018. 5. 30.
+ * Copyright (c) 2018. shnoble. All rights reserved.
+ */
+
+include ':NotificationSample'
+include ':BluetoothSample'
