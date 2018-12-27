@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable name="presenter" type="com.toast.android.databiding.sample.Presenter"/>
+        <variable name="user" type="com.toast.android.databiding.sample.User"/>
+        <variable name="counter" type="com.toast.android.databiding.sample.Counter"/>
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{user.firstName, default=PLACEHOLDER}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{user.lastName, default=PLACEHOLDER}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{counter.counter, default=PLACEHOLDER}" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Increase"
+            android:onClick="@{() -> presenter.onIncreaseCounterClick()}"/>
+    </LinearLayout>
+</layout>
+
